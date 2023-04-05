@@ -1,5 +1,5 @@
 const btn = document.querySelector("#btnStart");
-const texts = ["jesteś dzikiem", "do it baby, do it", "Nakurwiaj Michaś", "You can do it", "naaaah, nahhhh, nahhh, i na cyce grubasowi", "no dalej, zrób to jeszcze raz, postaraj się dla mnie", "nie przestawaj, już prawie"];
+const texts = ["jesteś dzikiem", "do it bejbi, do it", "Nakurwiaj Michaś", "You can do it", "naaaah, nahhhh, nahhh, i na cyce grubasowi", "no dalej, zrób to jeszcze raz, postaraj się dla mnie", "nie przestawaj, już prawie"];
 function speak(text) {
   if ("speechSynthesis" in window) {
     var msg = new SpeechSynthesisUtterance();
