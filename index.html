@@ -17,23 +17,45 @@
       <!-- <h2 class="h2 text-center">for Michaś</h2> -->
     </div>
     <div class="p-2 container shadow border rounded bg-white">
-      <div class="alert alert-info text-center">
-        <span>Czas:</span>
-        <span id="timer"></span>
+      <div data-timer-exercises class="alert alert-warning text-center hide">
+        <span data-exercise-name class="h1">Czas:</span>
+        <span data-exercise-time class="h1"></span>
       </div>
-      <div class="m-auto w-75">
+      <div data-timer-break class="alert alert-success text-center hide">
+        <span class="h1">Przerwa:</span>
+        <span data-break-time class="h1"></span>
+      </div>
+      <div data-exercises-menu class="d-flex flex-column m-auto w-75">
         <div class="input-group mb-3">
           <div class="w-50 m-0 input-group-prepend">
             <span class="justify-content-center w-100 input-group-text" >Pompki</span>
           </div>
-          <input type="number" class="form-control" data-exercise="pompki" placeholder="Ile sekund?" value="60">
+          <input type="number" class="form-control" data-name="Pompki" data-exercise="pushups" placeholder="Ile sekund?" value="60">
+        </div>
+        <div class="input-group mb-3">
+          <div class="w-50 m-0 input-group-prepend">
+            <span class="justify-content-center w-100 input-group-text" >Przysiady</span>
+          </div>
+          <input type="number" class="form-control" data-name="Przysiady" data-exercise="squats" placeholder="Ile sekund?" value="60">
+        </div>
+        <div class="input-group mb-3">
+          <div class="w-50 m-0 input-group-prepend">
+            <span class="justify-content-center w-100 input-group-text" >Pajacyki</span>
+          </div>
+          <input type="number" class="form-control" data-name="Pajacyki" data-exercise="rompers" placeholder="Ile sekund?" value="60">
+        </div>
+        <div class="input-group mb-3">
+          <div class="w-50 m-0 input-group-prepend">
+            <span class="justify-content-center w-100 input-group-text" >Przerwa</span>
+          </div>
+          <input type="number" class="form-control" data-name="Przerwa" data-exercise="break" placeholder="Ile sekund?" value="20">
         </div>
 
-        <button id="btnStart" class="btn bg-primary text-light">Start</button>
-        <div class="mt-1 p-1 border rounded">
+        <button id="btnStart" class="align-self-end btn bg-primary text-light">Start</button>
+        <!-- <div class="mt-1 p-1 border rounded">
           <h6 class="h6">testy:</h6>
           <span id="xyz"></span>
-        </div>
+        </div> -->
 
       </div>
 

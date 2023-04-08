@@ -3,6 +3,20 @@ export class SpeechSynthesizer {
     console.log("hello SpeechSynthesizer");
   }
 
+  speak(text) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voices = synth.getVoices();
+    for (var i = 0; i < voices.length; i++) {
+      if (voices[i].lang === "pl-PL") {
+        utterance.voice = voices[i];
+        break;
+      }
+    }
+
+    synth.speak(utterance);
+  }
+
   // const btn = document.querySelector("#btnStart");
   // // const texts = ["jesteś dzikiem", "du it beeejjbi, du it", "Nakurwiaj Michaś", "You ken du it", "naaaah, nahhhh, nahhh, i na cyce grubasowi", "no dalej, zrób to jeszcze raz, postaraj się dla mnie", "nie przestawaj, już prawie"];
   // const texts = ["1", "2", "3", "4", "5", "6"];

@@ -1,12 +1,25 @@
 import { SpeechSynthesizer } from "./SpeechSynthesizer.js";
+import { Timer } from "./Timer.js";
+import { UI } from "./UI.js";
 
-class App {
+class App extends UI {
   #SpeechSynthesizer = new SpeechSynthesizer();
+  #Timer = new Timer();
 
   initializeApp() {
-    // console.log("hello js");
-    // this.#SpeechSynthesizer.init();
-    this.addChaosToBtn();
+    // this.#Timer.init();
+    this.#addButtonsEventListeners();
+    //TODO counter od 30 do 0 w Timer
+    //TODO zaprogramuj timer ktoremu bedzie przekazywany czas
+    //TODO dodaj mowienie
+    // this.addChaosToBtn();
+  }
+
+  #addButtonsEventListeners() {
+    this.getElement(this.UiSelectors.btnStart).addEventListener("click", () => {
+      this.deactivateBtn(this.getElement(this.UiSelectors.btnStart));
+      this.#Timer.init();
+    });
   }
 
   addChaosToBtn() {
