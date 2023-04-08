@@ -31,6 +31,7 @@ export class Timer extends UI {
     this.getElement(this.UiSelectors.exerciseName).innerHTML = "Start za: ";
     this.getElement(this.UiSelectors.exerciseTime).innerHTML = this.#counterTime;
     this.#startCounter();
+    this.hideElement(this.UiSelectors.breakInfo);
   }
 
   #startCounter() {
@@ -94,6 +95,7 @@ export class Timer extends UI {
         console.log("stop break");
         clearInterval(interval);
         console.log("nastepne cwiczenie");
+        this.activateBtn(this.getElement(this.UiSelectors.btnStart));
       }
       this.getElement(this.UiSelectors.breakTime).innerHTML = breakTime;
     }, 1000);
