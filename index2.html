@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ćwiczenia</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<style>
+		.container {
+			margin-top: 50px;
+		}
+		.timer {
+			font-size: 48px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.btn-start {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="pompki">Pompki (s):</label>
+					<input type="number" class="form-control" id="pompki" value="30">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="przysiady">Przysiady (s):</label>
+					<input type="number" class="form-control" id="przysiady" value="30">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="pajacyki">Pajacyki (s):</label>
+					<input type="number" class="form-control" id="pajacyki" value="30">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<button type="button" class="btn btn-primary btn-start">Start</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 timer">
+				00:00
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p id="info"></p>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.3/dist/esm/popper">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.btn-start').click(function(){
+				var pompki = $('#pompki').val();
+				var przysiady = $('#przysiady').val();
+				var pajacyki = $('#pajacyki').val();
+				var timerDiv = $('.timer');
+				var infoDiv = $('#info');
+				var i = 0;
+				var exercises = [
+					{label: "Pompki", time: pompki},
+					{label: "Przysiady", time: przysiady},
+					{label: "Pajacyki", time: pajacyki}
+				];
+				
+				// Funkcja odliczająca czas
+				function countdown(time, callback){
+					timerDiv.text(time);
+					var interval = setInterval(function(){
+						time--;
+						timerDiv.text(time);
+						if(time == 0){
+							clearInterval(interval);
+							callback();
+                        }
+				}, 1000);
+			}
+			
+			// Funkcja wyświetlająca informację o ćwiczeniu
+			function showInfo(exercise){
+				infoDiv.text("Ćwiczenie: " + exercise.label);
+			}
+			
+			// Funkcja obsługująca pojedyncze ćwiczenie
+			function doExercise(exercise){
+				showInfo(exercise);
+				countdown(exercise.time, function(){
+					infoDiv.text("Przerwa 20s");
+					countdown(20, function(){
+						nextExercise();
+					});
+				});
+			}
+			
+			// Funkcja obsługująca kolejne ćwiczenie
+			function nextExercise(){
+				if(i < exercises.length){
+					doExercise(exercises[i]);
+					i++;
+				} else {
+					infoDiv.text("Koniec ćwiczeń");
+					timerDiv.text("00:00");
+				}
+			}
+			
+			// Uruchomienie ćwiczeń
+			nextExercise();
+		});
+	});
+</script>
