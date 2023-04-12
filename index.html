@@ -1,66 +1,125 @@
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkoutAssistant</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23000000%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2290%22>🐗</text></svg>" />
-</head>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>WorkoutAssistant</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="style/style.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	  </head>
 <body>
-    <div class='my-1 p-2 container shadow border rounded bg-white'>
-      <h1 class="h1 text-center border-bottom">Workout Assistant</h1>
-      <!-- <h2 class="h2 text-center">for Michaś</h2> -->
-    </div>
-    <div class="p-2 container shadow border rounded bg-white">
-      <div data-timer-exercises class="alert alert-warning text-center hide">
-        <span data-exercise-name class="h1">Czas:</span>
-        <span data-exercise-time class="h1"></span>
-      </div>
-      <div data-timer-break class="alert alert-success text-center hide">
-        <span class="h1">Przerwa:</span>
-        <span data-break-time class="h1"></span>
-      </div>
-      <div data-exercises-menu class="d-flex flex-column m-auto w-75">
-        <div class="input-group mb-3">
-          <div class="w-50 m-0 input-group-prepend">
-            <span class="justify-content-center w-100 input-group-text" >Pompki</span>
-          </div>
-          <input type="number" class="form-control" data-name="Pompki" data-exercise="pushups" placeholder="Ile sekund?" value="60">
-        </div>
-        <div class="input-group mb-3">
-          <div class="w-50 m-0 input-group-prepend">
-            <span class="justify-content-center w-100 input-group-text" >Przysiady</span>
-          </div>
-          <input type="number" class="form-control" data-name="Przysiady" data-exercise="squats" placeholder="Ile sekund?" value="60">
-        </div>
-        <div class="input-group mb-3">
-          <div class="w-50 m-0 input-group-prepend">
-            <span class="justify-content-center w-100 input-group-text" >Pajacyki</span>
-          </div>
-          <input type="number" class="form-control" data-name="Pajacyki" data-exercise="rompers" placeholder="Ile sekund?" value="60">
-        </div>
-        <div class="input-group mb-3">
-          <div class="w-50 m-0 input-group-prepend">
-            <span class="justify-content-center w-100 input-group-text" >Przerwa</span>
-          </div>
-          <input type="number" class="form-control" data-name="Przerwa" data-exercise="break" placeholder="Ile sekund?" value="20">
-        </div>
+	<div class="mt-2 p-3 container border rounded shadow">
+		<h1>Workout Assistant</h1>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="pushups">Pompki (sek)</label>
+					<input type="number" class="form-control" id="pushups" placeholder="Podaj czas pompkowania" value="60">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="squats">Przysiady (sek)</label>
+					<input type="number" class="form-control" id="squats" placeholder="Podaj czas przysiadowania" value="60">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="jumpingJacks">Pajacyki (sek)</label>
+					<input type="number" class="form-control" id="jumpingJacks" placeholder="Podaj czas pajacowania" value="60">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 d-flex justify-content-center">
+				<button type="button" class="mx-2 btn btn-primary" id="start">Start</button>
+				<button type="button" class="mx-2 btn btn-secondary" id="pause">Pauza</button>
+				<button type="button" class="mx-2 btn btn-danger" id="reset">Reset</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+				<h2 id="info"></h2>
+				<h1 id="timer" class="h1">00:00</h1>
+			</div>
+		</div>
+	</div>
 
-        <button id="btnStart" class="align-self-end btn bg-primary text-light">Start</button>
-        <!-- <div class="mt-1 p-1 border rounded">
-          <h6 class="h6">testy:</h6>
-          <span id="xyz"></span>
-        </div> -->
+	<script>
+		$(document).ready(function(){
+			var exercises = [
+				{label: "Pompki", time: 0},
+				{label: "Przysiady", time: 0},
+				{label: "Pajacyki", time: 0}
+			];
+			var timerDiv = $("#timer");
+			var infoDiv = $("#info");
+			var intervalId;
+			var elapsedTime = 0;
+			var i = 0;
 
-      </div>
+			// Funkcja odliczająca czas
+			function countdown(time, callback){
+				startTime = Date.now();
+				intervalId = setInterval(function(){
+					var remainingTime = time - Math.floor((Date.now() - startTime + elapsedTime) / 1000);
+					if(remainingTime <= 0){
+						clearInterval(intervalId);
+						callback();
+					} else {
+						var minutes = Math.floor(remainingTime / 60);
+						var seconds = remainingTime % 60;
+						var minutesStr = minutes < 10 ? "0" + minutes : minutes;
+						var secondsStr = seconds < 10 ? "0" + seconds :	seconds;
+					timerDiv.text(minutesStr + ":" + secondsStr);
+				}
+			}, 100);
+		}
 
-    </div>
-    <script type='module' src="js/App.js"></script>
-</body>
-</html>
+		// Funkcja uruchamiana po zakończeniu ćwiczenia
+		function exerciseEnd(){
+			elapsedTime = 0;
+			timerDiv.text("00:00");
+			if(i < exercises.length - 1){
+				infoDiv.text("Następne ćwiczenie za 20 sekund: " + exercises[i+1].label);
+				setTimeout(function(){
+					infoDiv.text("");
+					i++;
+					countdown(exercises[i].time, exerciseEnd);
+				}, 20000);
+			} else {
+				infoDiv.text("Koniec ćwiczeń!");
+			}
+		}
+
+
+		// Funkcja obsługująca kliknięcie przycisku Start
+		$("#start").click(function(){
+			exercises[0].time = parseInt($("#pushups").val());
+			exercises[1].time = parseInt($("#squats").val());
+			exercises[2].time = parseInt($("#jumpingJacks").val());
+			i = 0;
+			countdown(exercises[0].time, exerciseEnd);
+		});
+
+		// Funkcja obsługująca kliknięcie przycisku Pauza
+		$("#pause").click(function(){
+			clearInterval(intervalId);
+			elapsedTime += Date.now() - startTime;
+		});
+
+		// Funkcja obsługująca kliknięcie przycisku Reset
+		$("#reset").click(function(){
+			clearInterval(intervalId);
+			elapsedTime = 0;
+			i = 0;
+			infoDiv.text("");
+			timerDiv.text("00:00");
+		});
+	});
+</script>
 

@@ -8,8 +8,12 @@ body {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("https://pixabay.com/get/g1805aff90c2c5a8fff11c3a9b1d56898aef9a720ecf3b4b4bb8c5437337e80165684a99c9ad8d30be856e3407ad5ae39c8f7dac5413daf5ce66a705dd688b3157d323cadb7467aa42d7fb9dfd88022ab_1920.jpg");
   /* background-image: url("https://i.ytimg.com/vi/UEexTkCYKSE/maxresdefault.jpg"); */
+  background-image: url("../assets/forest.jpg");
+}
+
+.container {
+  background-color: #fff;
 }
 
 .hide {
